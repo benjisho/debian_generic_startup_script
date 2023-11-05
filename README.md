@@ -2,8 +2,8 @@
 
 This is also a useful script that will install whatever u need on your `Debian` machine during the startup.
 I wrote 2 versions of it.
-- `vm_startup_script_no_version_check.sh` - just update the list of packages and it will install it if it wasan't already installed.
-- `vm_startup_script_with_version_check.sh` - Better for a closed LAN environments, it is a bit of a smarter version that will also check if the **exact version** of the package you are trying to install already exists and if not it will install exactly it.
+- `startup.sh` - just update the list of packages and it will install it if it wasan't already installed.
+- `startup_with_version_check.sh` - Better for a closed LAN environments, it is a bit of a smarter version that will also check if the **exact version** of the package you are trying to install already exists and if not it will install exactly it.
     
     > even if it means to downgrade a package you upgraded!
     > So if you choose the second script - keep an eye your versioning :)
@@ -11,7 +11,7 @@ I wrote 2 versions of it.
 - Feel free to edit it as you see fit:
 
 #### Startup script installation
-1. Save the  this way - `/opt/vm_startup_script_no_version_check.sh`
+1. Save the  this way - `/opt/startup.sh`
 
 2. Create the service file - `/etc/systemd/system/startup.service`
 ```bash
@@ -20,7 +20,7 @@ Description=Startup script service
 
 [Service]
 Type=simple
-ExecStart=/bin/bash /opt/vm_startup_script_no_version_check.sh
+ExecStart=/bin/bash /opt/startup.sh
 
 [Install]
 WantedBy=multi-user.target
